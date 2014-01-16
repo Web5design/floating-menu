@@ -1,0 +1,142 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1, maximum-scale=1"/>
+  <title>Floating Menu</title>
+  <script type="text/javascript" src="platform.js"></script>
+  <script type="text/javascript" src="polymer.js"></script>
+  <link rel="import" href="floating-menu.html">
+  <style type="text/css">
+    html {
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    }
+    *{
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      margin:0;
+      padding:0;
+    }
+    body{
+      background:gray;
+      width:100%;
+      height:100%;
+      font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    a {
+      color: white;
+      font-weight: bold;
+    }
+    #description {
+      color: white;
+      margin: 48px
+    }
+  </style>
+</head>
+<body oncontextmenu="return false">
+  <div id="description">
+    <h3><u>Simple floating menu</u><h3>
+    <h4>with an even simpler API</h4>
+    <br />
+    <ul>
+      <li>Right-click or tap anywhere</li>
+      <li>Do it again near the edge of the window</li>
+      <li>Notice that submenus dont change if your cursor accidentaly slips to the next item</li>
+      <li>Like it? Get the source code <a href="https://github.com/arodic/floating-menu">here</a></li>
+      <li>Please report bugs on GitHub! ;)</li>
+      <li><a href="https://twitter.com/xyz_ak" target="_blank">Follow me</a> and tweet this shit!</li>
+    </ul>
+    <br />
+    <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a>
+  </div>
+  <floating-menu id="menu"></floating-menu>
+
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  <script type="text/javascript">
+    window.addEventListener('WebComponentsReady', function() {
+      var menu = document.querySelector("#menu")
+      menu.options = [
+        { label: "Options", options: [
+            { label: "Even", options: [
+              { label: "Option1", action: function(){ alert('You clicked Option1. You know you did!') } },
+              { label: "Option2", action: function(){ alert('You clicked Option2. You know you did!') } },
+              { label: "Option3", action: function(){ alert('You clicked Option3. You know you did!') } }
+            ] },
+            { label: "More", options: [
+              { label: "Option4", action: function(){ alert('You clicked Option4. You know you did!') } },
+              { label: "Option5", action: function(){ alert('You clicked Option5. You know you did!') } },
+              { label: "Option6", action: function(){ alert('You clicked Option6. You know you did!') } }
+            ] },
+            { label: "Options", options: [
+              { label: "Option7", action: function(){ alert('You clicked Option7. You know you did!') } },
+              { label: "Option8", action: function(){ alert('You clicked Option8. You know you did!') } },
+              { label: "Option9", action: function(){ alert('You clicked Option9. You know you did!') } }
+            ] } 
+        ] },
+        { label: "Recurive", options: [
+          { label: "And", options: [
+            { label: "Very", options: [
+              { label: "Very", options: [
+                { label: "Deep", options: [
+                  { label: "Submemenu", options: [
+                    { label: "Nesting", action: function(){ alert('You went all the way!') } }
+                  ] } 
+                ] } 
+              ] } 
+            ] } 
+          ] } 
+        ] },
+        { label: "Very long", options: [
+          { label: "add" },
+          { label: "subtract" },
+          { label: "multiply" },
+          { label: "divide" },
+          { label: "radians" },
+          { label: "degrees" },
+          { label: "sin" },
+          { label: "cos" },
+          { label: "tan" },
+          { label: "asin" },
+          { label: "acos" },
+          { label: "atan" },
+          { label: "pow" },
+          { label: "exp" },
+          { label: "log" },
+          { label: "exp2" },
+          { label: "log2" },
+          { label: "sqrt" },
+          { label: "abs" },
+          { label: "sign" },
+          { label: "floor" },
+          { label: "ceil" },
+          { label: "fract" },
+          { label: "mod" },
+          { label: "min" },
+          { label: "max" },
+          { label: "clamp" },
+          { label: "mix" },
+          { label: "step" },
+          { label: "smoothstep" },
+          { label: "length" },
+          { label: "distance" },
+          { label: "dot" },
+          { label: "cross" }
+        ] },
+        {},
+        { label: "File", options: [
+            { label: "Open" },
+            { label: "Save" },
+            { label: "Save As" },
+            { label: "Import" }
+        ] },
+        { label: "Edit", options: [
+            { label: "Undo" },
+            { label: "Redo" },
+            { label: "Duplicate" },
+            { label: "Delete" }
+        ] }
+      ]
+    });
+  </script>
+</body>
+</html>
