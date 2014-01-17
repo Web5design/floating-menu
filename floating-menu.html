@@ -179,6 +179,9 @@
         this.addEventListener('pointermove', function(event){
           y = (event.clientY / window.innerHeight - 0.5)          
         }, false)
+        this.addEventListener('pointerout', function(event){
+          y = 0         
+        }, false)
 
         var align = function() {
           requestAnimationFrame(align)
@@ -254,7 +257,7 @@
   </template>
   <script>
   (function() {
-    var HOLD_TIME = 200
+    var HOLD_TIME = 500
     var EXPAND_DELAY = 500
     Polymer('floating-menu-item', {
       label: '',
@@ -277,9 +280,14 @@
           event.stopPropagation()
           event.preventDefault()
           // todo make sure it doesent trigger when hovered unintentionally
-          if (scope.action) scope.action()
-          if (scope.action || scope.submenu.empty)
-            scope.fire('floating-menu-item-clicked', scope)
+          if (!scope.hold){
+            if (scope.action) {
+              scope.action()
+              scope.fire('floating-menu-item-clicked', scope)
+            } else if (scope.submenu.empty) {
+              scope.fire('floating-menu-item-clicked', scope)
+            }
+          }
         }, false)
 
       },
