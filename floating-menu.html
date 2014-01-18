@@ -88,23 +88,23 @@
           }, false)
 
           veil.addEventListener('pointerover', function(event){
-            //event.stopPropagation()
+            event.stopPropagation()
             event.preventDefault()
             closeTimeout = setTimeout(function(){
               scope.visible = false
             }, 500)
           }, false)
           veil.addEventListener('pointerdown', function(event){
-            //event.stopPropagation()
+            event.stopPropagation()
             event.preventDefault()
             scope.visible = false
           }, false)
           veil.addEventListener('pointermove', function(event){
-            //event.stopPropagation()
+            event.stopPropagation()
             event.preventDefault()
           }, false)
           veil.addEventListener('pointerup', function(event){
-            //event.stopPropagation()
+            event.stopPropagation()
             event.preventDefault()
           }, false)
 
